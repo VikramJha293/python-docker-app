@@ -6,14 +6,14 @@ node{
       }
    
    stage('Docker Build') {
-     def app = docker.build "manee2k6/pattabiapp"
+     def app = docker.build "manee2k6/vegas"
     }
    
    stage("Tag & Push image"){
       withDockerRegistry([credentialsId: 'Github-ID', url: 'https://hub.docker.com']) {
-          sh 'docker tag manee2k6/pattabiapp manee2k6/pattabiapp:001'
-          sh 'docker push manee2k6/pattabiapp:001'
-          sh 'docker push manee2k6/pattabiapp:latest'
+          sh 'docker tag manee2k6/vegas manee2k6/vegas:001'
+          sh 'docker push manee2k6/vegas:001'
+          sh 'docker push manee2k6/vegas:latest'
       }
     }
    
